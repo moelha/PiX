@@ -1,7 +1,10 @@
-# <img src="https://www.raspberrypi.org/app/uploads/2018/03/RPi-Logo-Reg-SCREEN.png" alt="alt text" width="25" height="31">RocketPi
+# <img src="https://www.raspberrypi.org/app/uploads/2018/03/RPi-Logo-Reg-SCREEN.png" alt="alt text" width="25" height="31">Pi
+
+# Pi<img src="https://upload.wikimedia.org/wikipedia/commons/3/36/SpaceX-Logo-Xonly.svg" alt="alt text" width="50" height="60">
 
 
- Rocket flight recorder based on Raspberry Pi Zero
+
+<img src="https://www.raspberrypi.org/app/uploads/2018/03/RPi-Logo-Reg-SCREEN.png" alt="alt text" width="25" height="31"> Rocket flight recorder based on Raspberry Pi Zero 
  
  ---
  

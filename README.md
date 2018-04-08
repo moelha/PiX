@@ -7,8 +7,8 @@ Rocket flight recorder based on Raspberry Pi Zero W v1.3)
 
 <table border="0">
   <tr>
-    <td><img src="/PiX_front.jpg" alt="Front"></td>
-    <td><img src="/PiX_back.jpg" alt="Back"></td>
+    <td><img src="/images/PiX_front.jpg" alt="Front"></td>
+    <td><img src="/images/PiX_back.jpg" alt="Back"></td>
   </tr>
 
 </table>
@@ -48,7 +48,7 @@ Rocket flight recorder based on Raspberry Pi Zero W v1.3)
 | -------------         |:-------------:           |:-----:          | -----:                                                    |
 | SpaceX Falcon 9   | Model rocket              |[SpaceX](https://shop.spacex.com/accessories/f9-flying-model-rocket-kit.html)|       £20.59            |
 
-<img src="/image_from_rocket.jpg" alt="Shot from model rocket">
+<img src="/images/image_from_rocket.jpg" alt="Shot from model rocket">
 
 ## Getting started
 Let's get started! First thing first, solder the MPU6050, BME280 and the LiPo SHIM for the best results. Other means of connection, such as jumper wires or connectors are discouraged as they might disconnect during takeoff. 
@@ -79,20 +79,20 @@ network={
 Where *YOUR_SSID* and *YOUR_PASSWORD* are the SSID and Password of your WiFi router.
 
 This is what your /boot directory should look like now
-<img src="/ssh_wpa.jpg" alt="Boot directory">
+<img src="/images/ssh_wpa.jpg" alt="Boot directory">
 
 The Raspberry Pi Zero W on boot will read these two files and automatically enable the SSH server and connect it to your WiFi router.
 
 Now eject the micro SD card, put it in the Raspberry and power it on with a micro USB cable.
 
 Now your Pi should have connected to your router, and we need to find out its IP address. An easy way to do this is to use [Advanced IP Scanner](https://www.advanced-ip-scanner.com).
-<img src="/ip_scanner.jpg" alt="IP scan">
+<img src="/images/ip_scanner.jpg" alt="IP scan">
 
 Now that we have found out the IP address, let's SSH into it. We'll use [Putty](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) for that.
-<img src="/putty.jpg" alt="Putty">
+<img src="/images/putty.jpg" alt="Putty">
 
 You'll be asked username and password. 
-<img src="/login.jpg" alt="Putty login">
+<img src="/images/login.jpg" alt="Putty login">
 
 The default user name is:
 ```
@@ -103,7 +103,7 @@ And the default password is:
 raspberry
 ```
 Now you should be logged in. It is advised to change these credentials for safety reasons.
-<img src="/logged_in.jpg" alt="Putty logged in">
+<img src="/images/logged_in.jpg" alt="Putty logged in">
 
 We're all set! Let's move forwards by installing some essentials modules.
 

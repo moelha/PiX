@@ -3,6 +3,17 @@
 
 # Pi<img src="https://upload.wikimedia.org/wikipedia/commons/3/36/SpaceX-Logo-Xonly.svg" alt="alt text" width="50" height="60"> 
 Rocket flight recorder based on Raspberry Pi Zero W v1.3)
+
+<table style="width:100%">
+  <tr>
+    <td><img src="/PiX_front.jpg" alt="Front"></td>
+    <td><img src="/PiX_back.jpg" alt="Back"></td>
+  </tr>
+
+</table>
+
+
+
  
  ---
  
@@ -14,10 +25,7 @@ Rocket flight recorder based on Raspberry Pi Zero W v1.3)
   - [Python](#python)
   - [Mosquitto](#mosquitto)
   - [RPi Cam Interface](#rpi-cam-interface)
-  - [Node-RED](#node-red)
- - Code
-- To-do
- 
+  - [Node-RED](#node-red) 
  ---
  
  ## Electronic components 
@@ -37,7 +45,7 @@ Rocket flight recorder based on Raspberry Pi Zero W v1.3)
 | -------------         |:-------------:           |:-----:          | -----:                                                    |
 | SpaceX Falcon 9   | Model rocket              |[SpaceX](https://shop.spacex.com/accessories/f9-flying-model-rocket-kit.html)|       £20.59            |
 
-<img src="/Image_from_rocket.jpg" alt="Shot from model rocket">
+<img src="/image_from_rocket.jpg" alt="Shot from model rocket">
 
 ## Setup
 
@@ -105,14 +113,11 @@ Now let's install Node-RED
 ```
 bash <(curl -sL https://raw.githubusercontent.com/node-red/raspbian-deb-package/master/resources/update-nodejs-and-nodered)
 ```
+Install the dashboard module
+```
+sudo npm install node-red-dashboard
+```
 Make it autostart on boot
 ```
 sudo systemctl enable nodered.service
 ```
----
-
-## To-do :
-
-- [x] List sensors
-- [ ] Provide schematics for electronics
-- [ ] List libraries and frameworks used, plus installation instructions

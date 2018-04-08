@@ -23,6 +23,7 @@ Rocket flight recorder based on Raspberry Pi Zero W v1.3)
 - [Electronic components](#electronic-components)
 - [Model rocket](#model-rocket)
 - [Getting started](#getting-started)
+  - [Tools](#tools)
   - [Raspbian Jessie Lite](#raspbian-jessie-lite)
   - [Python](#python)
   - [Mosquitto](#mosquitto)
@@ -55,6 +56,7 @@ Let's get started! First thing first, solder the MPU6050, BME280 and the LiPo SH
 
 Now, we are also going to need a few tools, so downloading them now is a good idea.
 
+### Tools
 - [Etcher](https://etcher.io/) - SD Card flasher
 - [Advanced IP Scanner](https://www.advanced-ip-scanner.com) - IP Scanner
 - [Putty](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) - SSH client

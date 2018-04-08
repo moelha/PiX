@@ -6,6 +6,16 @@
  
  ---
  
+ ## Table of Contents
+ 1. Components
+ 2. Model rocket
+ 3. Installing libraries
+ 4. Code
+ 5. To-do
+ 
+ 
+ ---
+ 
  ### Components
 
  Electronic components:
@@ -19,16 +29,22 @@
 | BMP280                | Pressure, temperature and humidity sensor|[Pimoroni](https://shop.pimoroni.com/products/adafruit-bmp280-i2c-or-spi-barometric-pressure-altitude-sensor)|    £10.50       |
 | MPU6050         | Accelerometer and Gyroscope     |[Sparkfun](https://www.sparkfun.com/products/11028)  |   £21.26       |
 
-Model rocket:
+## Model rocket:
 
 | Component             |        Description       |     Source      |                          Price                            |
 | -------------         |:-------------:           |:-----:          | -----:                                                    |
 | SpaceX Falcon 9   | Model rocket              |[SpaceX](https://shop.spacex.com/accessories/f9-flying-model-rocket-kit.html)|       £20.59            |
 
-## Image from model rocket
-[SpaceX](/Image_from_rocket.jpg)
+## Shot from model rocket
+<img src="/Image_from_rocket.jpg" alt="Shot from model rocket">
 
-To do :
+## Installing libraries
+
+```
+sudo apt-get install node-red
+```
+
+To-do :
 
 - [x] List sensors
 - [ ] Provide schematics for electronics

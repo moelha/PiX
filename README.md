@@ -2,6 +2,10 @@
 
 
  Rocket flight recorder based on Raspberry Pi Zero
+ 
+ ---
+ 
+ Electronic components:
 
 | Component             |        Description       |     Source      |                          Price                            |
 | -------------         |:-------------:           |:-----:          | -----:                                                    |
@@ -11,6 +15,13 @@
 | LiPo Battery          | 150mAh                   |https://shop.pimoroni.com/products/lipo-battery-pack |    £5                  |
 | BMP280                | Pressure, temperature and humidity sensor|https://shop.pimoroni.com/products/adafruit-bmp280-i2c-or-spi-barometric-pressure-altitude-sensor|    £10.50       |
 | MPU6050         | Accelerometer and Gyroscope     |https://www.sparkfun.com/products/11028  |   £21.26       |
+
+Model rocket:
+
+| Component             |        Description       |     Source      |                          Price                            |
+| -------------         |:-------------:           |:-----:          | -----:                                                    |
+| SpaceX Falcon 9   | Model rocket              |https://shop.spacex.com/accessories/f9-flying-model-rocket-kit.html|       £20.59            |
+
 
 To do:
 

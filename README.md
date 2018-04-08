@@ -4,7 +4,7 @@
 # Pi<img src="https://upload.wikimedia.org/wikipedia/commons/3/36/SpaceX-Logo-Xonly.svg" alt="alt text" width="50" height="60"> 
 Rocket flight recorder based on Raspberry Pi Zero W v1.3)
 
-<table style="width:100%">
+<table border="0">
   <tr>
     <td><img src="/PiX_front.jpg" alt="Front"></td>
     <td><img src="/PiX_back.jpg" alt="Back"></td>

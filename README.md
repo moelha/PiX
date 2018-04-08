@@ -1,3 +1,4 @@
+
 # Pi<img src="https://upload.wikimedia.org/wikipedia/commons/3/36/SpaceX-Logo-Xonly.svg" alt="alt text" width="50" height="60">
 
 
@@ -7,17 +8,25 @@
  ---
  
  ## Table of Contents
- 1. Components
- 2. Model rocket
- 3. Installing libraries
- 4. Code
- 5. To-do
- 
+- [Components](#components)
+- [Model rocket](#model-rocket)
+- [Setup](#setup)
+  - [Raspbian Jessie](#raspbian-jessie)
+  - [Python](#python)
+  - [Mosquitto](#mosquitto)
+  - [RPi Cam Interface](#rpi-cam-interface)
+  - [Node-RED](#node-red)
+ - Code
+- To-do
  
  ---
  
- ### Components
+ ### Components 
+ 
+```
 
+
+```
  Electronic components:
 
 | Component             |        Description       |     Source      |                          Price                            |
@@ -38,11 +47,77 @@
 ## Shot from model rocket
 <img src="/Image_from_rocket.jpg" alt="Shot from model rocket">
 
-## Installing libraries
+## Setup
 
+### Raspbian Jessie
+
+Download and flash [Raspbian Jessie](http://downloads.raspberrypi.org/raspbian_lite/images/raspbian_lite-2017-07-05/2017-07-05-raspbian-jessie-lite.zip) on a micro SD card (preferably a 64GB one) with [Etcher](https://etcher.io/), or an alternative flasher.
+
+---
+### Python
+Python will be used to read from the sensors and transmit the data to Node-RED via mqtt
 ```
-sudo apt-get install node-red
+sudo apt-get install python-2.7 python-pip
 ```
+Now let's install the mqtt library for Python
+```
+sudo pip install paho-mqtt
+```
+In order to read from the I2C from Python, we need to install the smbus module
+```
+sudo apt-get install python-smbus
+```
+---
+### Mosquitto
+Now let's install a MQTT broker, Mosquitto
+```
+wget http://repo.mosquitto.org/debian/mosquitto-repo.gpg.key
+```
+```
+sudo apt-key add mosquitto-repo.gpg.key
+```
+```
+cd /etc/apt/sources.list.d/
+```
+```
+sudo wget http://repo.mosquitto.org/debian/mosquitto-jessie.list
+```
+```
+sudo apt-get update
+```
+```
+sudo apt-get install mosquitto mosquitto-clients
+```
+---
+### RPi Cam interface
+
+RPi Cam Web Interface is a web interface for the Raspberry Pi Camera module. It can be used for a wide variety of applications including surveillance, dvr recording and time lapse photography. We will be using it to capture images and live video from the camera. 
+
+Connect the camera with the Raspberry Pi Zero W and proceed with the instructions below.
+
+First, let's clone the RPi Cam Web Interface repository and install it
+```
+git clone https://github.com/silvanmelchior/RPi_Cam_Web_Interface.git
+```
+```
+cd RPi_Cam_Web_Interface
+```
+```
+./install.sh
+```
+---
+
+### Node-RED
+
+Now let's install Node-RED
+```
+bash <(curl -sL https://raw.githubusercontent.com/node-red/raspbian-deb-package/master/resources/update-nodejs-and-nodered)
+```
+Make it autostart on boot
+```
+sudo systemctl enable nodered.service
+```
+---
 
 To-do :
 

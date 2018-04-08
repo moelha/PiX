@@ -1,4 +1,5 @@
 
+
 # Pi<img src="https://upload.wikimedia.org/wikipedia/commons/3/36/SpaceX-Logo-Xonly.svg" alt="alt text" width="50" height="60">
 
 
@@ -8,7 +9,7 @@
  ---
  
  ## Table of Contents
-- [Components](#components)
+- [Electronic components](#electronic-components)
 - [Model rocket](#model-rocket)
 - [Setup](#setup)
   - [Raspbian Jessie](#raspbian-jessie)
@@ -21,13 +22,7 @@
  
  ---
  
- ### Components 
- 
-```
-
-
-```
- Electronic components:
+ ## Electronic components 
 
 | Component             |        Description       |     Source      |                          Price                            |
 | -------------         |:-------------:           |:-----:          | -----:                                                    |
@@ -44,7 +39,6 @@
 | -------------         |:-------------:           |:-----:          | -----:                                                    |
 | SpaceX Falcon 9   | Model rocket              |[SpaceX](https://shop.spacex.com/accessories/f9-flying-model-rocket-kit.html)|       £20.59            |
 
-## Shot from model rocket
 <img src="/Image_from_rocket.jpg" alt="Shot from model rocket">
 
 ## Setup
@@ -119,7 +113,7 @@ sudo systemctl enable nodered.service
 ```
 ---
 
-To-do :
+## To-do :
 
 - [x] List sensors
 - [ ] Provide schematics for electronics

@@ -1,0 +1,288 @@
+[
+    {
+        "id": "2563a908.ea8306",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "231eb22c.ca30ce",
+        "type": "mqtt in",
+        "z": "2563a908.ea8306",
+        "name": "",
+        "topic": "sensor/6DOF",
+        "qos": "2",
+        "broker": "88fe0e38.c2ceb",
+        "x": 110,
+        "y": 120,
+        "wires": [
+            [
+                "b13a57fa.c01be8"
+            ]
+        ]
+    },
+    {
+        "id": "4ea4f956.d0af78",
+        "type": "debug",
+        "z": "2563a908.ea8306",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 190,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "b13a57fa.c01be8",
+        "type": "json",
+        "z": "2563a908.ea8306",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 250,
+        "y": 120,
+        "wires": [
+            [
+                "4ea4f956.d0af78",
+                "15700e55.14dbb2",
+                "63fc5742.bd0018",
+                "737f7797.01c188"
+            ]
+        ]
+    },
+    {
+        "id": "ec658f3b.bdcf3",
+        "type": "mqtt in",
+        "z": "2563a908.ea8306",
+        "name": "",
+        "topic": "sensor/BME280",
+        "qos": "2",
+        "broker": "88fe0e38.c2ceb",
+        "x": 120,
+        "y": 520,
+        "wires": [
+            [
+                "968b41e8.fa73a"
+            ]
+        ]
+    },
+    {
+        "id": "7fa2eed9.4e38d",
+        "type": "debug",
+        "z": "2563a908.ea8306",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 370,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "968b41e8.fa73a",
+        "type": "json",
+        "z": "2563a908.ea8306",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 270,
+        "y": 520,
+        "wires": [
+            [
+                "7fa2eed9.4e38d",
+                "12602531.f74bdb",
+                "5a1f02c3.e0530c",
+                "d92d138a.0340c"
+            ]
+        ]
+    },
+    {
+        "id": "12602531.f74bdb",
+        "type": "function",
+        "z": "2563a908.ea8306",
+        "name": "Temp",
+        "func": "return {payload:msg.payload.d.temperature};",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 450,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5a1f02c3.e0530c",
+        "type": "function",
+        "z": "2563a908.ea8306",
+        "name": "Humidity",
+        "func": "return {payload:msg.payload.d.humidity};",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 460,
+        "y": 540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d92d138a.0340c",
+        "type": "function",
+        "z": "2563a908.ea8306",
+        "name": "Pressure",
+        "func": "return {payload:msg.payload.d.pressure};",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 460,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "15700e55.14dbb2",
+        "type": "function",
+        "z": "2563a908.ea8306",
+        "name": "Acc_x",
+        "func": "return {payload:msg.payload.d.accelerometer.x};\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 430,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "63fc5742.bd0018",
+        "type": "function",
+        "z": "2563a908.ea8306",
+        "name": "Acc_y",
+        "func": "return {payload:msg.payload.d.accelerometer.y};\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 430,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "737f7797.01c188",
+        "type": "function",
+        "z": "2563a908.ea8306",
+        "name": "Acc_z",
+        "func": "return {payload:msg.payload.d.accelerometer.z};\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 430,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "24bf2154.aaa51e",
+        "type": "function",
+        "z": "2563a908.ea8306",
+        "name": "Gyro_x",
+        "func": "return {payload:msg.payload.d.gyroscope.x};\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 440,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a032e8c9.57dce8",
+        "type": "function",
+        "z": "2563a908.ea8306",
+        "name": "Gyro_y",
+        "func": "return {payload:msg.payload.d.gyroscope.y};\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 440,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1cd25cd.63621a3",
+        "type": "function",
+        "z": "2563a908.ea8306",
+        "name": "Gyro_z",
+        "func": "return {payload:msg.payload.d.gyroscope.z};\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 440,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "58a47349.a9425c",
+        "type": "websocket in",
+        "z": "2563a908.ea8306",
+        "name": "test",
+        "server": "45697dc8.44b754",
+        "client": "",
+        "x": 90,
+        "y": 780,
+        "wires": [
+            [
+                "1b6759bd.a21546"
+            ]
+        ]
+    },
+    {
+        "id": "1b6759bd.a21546",
+        "type": "debug",
+        "z": "2563a908.ea8306",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "x": 210,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "88fe0e38.c2ceb",
+        "type": "mqtt-broker",
+        "z": "",
+        "name": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": ""
+    },
+    {
+        "id": "45697dc8.44b754",
+        "type": "websocket-listener",
+        "z": "",
+        "path": "/websocket",
+        "wholemsg": "false"
+    }
+]

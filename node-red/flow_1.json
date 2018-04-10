@@ -11,11 +11,11 @@
         "type": "mqtt in",
         "z": "2563a908.ea8306",
         "name": "",
-        "topic": "sensor/6DOF",
+        "topic": "sensor/IMU",
         "qos": "2",
         "broker": "88fe0e38.c2ceb",
         "x": 110,
-        "y": 120,
+        "y": 60,
         "wires": [
             [
                 "b13a57fa.c01be8"
@@ -27,13 +27,13 @@
         "type": "debug",
         "z": "2563a908.ea8306",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
-        "x": 190,
-        "y": 260,
+        "complete": "payload",
+        "x": 470,
+        "y": 160,
         "wires": []
     },
     {
@@ -44,14 +44,13 @@
         "property": "payload",
         "action": "",
         "pretty": false,
-        "x": 250,
-        "y": 120,
+        "x": 270,
+        "y": 60,
         "wires": [
             [
                 "4ea4f956.d0af78",
-                "15700e55.14dbb2",
-                "63fc5742.bd0018",
-                "737f7797.01c188"
+                "89705487.6fb618",
+                "cc64e800.3cfd48"
             ]
         ]
     },
@@ -64,7 +63,7 @@
         "qos": "2",
         "broker": "88fe0e38.c2ceb",
         "x": 120,
-        "y": 520,
+        "y": 320,
         "wires": [
             [
                 "968b41e8.fa73a"
@@ -76,13 +75,13 @@
         "type": "debug",
         "z": "2563a908.ea8306",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
         "complete": "false",
-        "x": 370,
-        "y": 700,
+        "x": 490,
+        "y": 500,
         "wires": []
     },
     {
@@ -93,13 +92,14 @@
         "property": "payload",
         "action": "",
         "pretty": false,
-        "x": 270,
-        "y": 520,
+        "x": 290,
+        "y": 320,
         "wires": [
             [
                 "7fa2eed9.4e38d",
                 "12602531.f74bdb",
                 "5a1f02c3.e0530c",
+                "17d7b653.8016aa",
                 "d92d138a.0340c"
             ]
         ]
@@ -109,13 +109,15 @@
         "type": "function",
         "z": "2563a908.ea8306",
         "name": "Temp",
-        "func": "return {payload:msg.payload.d.temperature};",
+        "func": "return {payload:Number((msg.payload.d.temperature).toFixed(2))};",
         "outputs": 1,
         "noerr": 0,
-        "x": 450,
-        "y": 500,
+        "x": 470,
+        "y": 300,
         "wires": [
-            []
+            [
+                "4df22334.9e77dc"
+            ]
         ]
     },
     {
@@ -123,13 +125,15 @@
         "type": "function",
         "z": "2563a908.ea8306",
         "name": "Humidity",
-        "func": "return {payload:msg.payload.d.humidity};",
+        "func": "return {payload:Number((msg.payload.d.humidity).toFixed(2))};",
         "outputs": 1,
         "noerr": 0,
-        "x": 460,
-        "y": 540,
+        "x": 480,
+        "y": 340,
         "wires": [
-            []
+            [
+                "da3e5dfc.3d20e"
+            ]
         ]
     },
     {
@@ -137,127 +141,279 @@
         "type": "function",
         "z": "2563a908.ea8306",
         "name": "Pressure",
-        "func": "return {payload:msg.payload.d.pressure};",
+        "func": "return {payload:Number(((msg.payload.d.pressure)/100).toFixed(2))};",
         "outputs": 1,
         "noerr": 0,
-        "x": 460,
-        "y": 580,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "15700e55.14dbb2",
-        "type": "function",
-        "z": "2563a908.ea8306",
-        "name": "Acc_x",
-        "func": "return {payload:msg.payload.d.accelerometer.x};\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 430,
-        "y": 120,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "63fc5742.bd0018",
-        "type": "function",
-        "z": "2563a908.ea8306",
-        "name": "Acc_y",
-        "func": "return {payload:msg.payload.d.accelerometer.y};\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 430,
-        "y": 160,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "737f7797.01c188",
-        "type": "function",
-        "z": "2563a908.ea8306",
-        "name": "Acc_z",
-        "func": "return {payload:msg.payload.d.accelerometer.z};\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 430,
-        "y": 200,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "24bf2154.aaa51e",
-        "type": "function",
-        "z": "2563a908.ea8306",
-        "name": "Gyro_x",
-        "func": "return {payload:msg.payload.d.gyroscope.x};\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 440,
-        "y": 260,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "a032e8c9.57dce8",
-        "type": "function",
-        "z": "2563a908.ea8306",
-        "name": "Gyro_y",
-        "func": "return {payload:msg.payload.d.gyroscope.y};\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 440,
-        "y": 300,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "1cd25cd.63621a3",
-        "type": "function",
-        "z": "2563a908.ea8306",
-        "name": "Gyro_z",
-        "func": "return {payload:msg.payload.d.gyroscope.z};\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 440,
-        "y": 340,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "58a47349.a9425c",
-        "type": "websocket in",
-        "z": "2563a908.ea8306",
-        "name": "test",
-        "server": "45697dc8.44b754",
-        "client": "",
-        "x": 90,
-        "y": 780,
+        "x": 480,
+        "y": 380,
         "wires": [
             [
-                "1b6759bd.a21546"
+                "b5c92ee7.ca8d1"
             ]
         ]
     },
     {
-        "id": "1b6759bd.a21546",
+        "id": "4df22334.9e77dc",
+        "type": "ui_gauge",
+        "z": "2563a908.ea8306",
+        "name": "",
+        "group": "2ada1bdf.a21f94",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperature",
+        "label": "Celsius",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#e6e600",
+            "#00b500",
+            "#ca3838"
+        ],
+        "seg1": "10",
+        "seg2": "50",
+        "x": 630,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "da3e5dfc.3d20e",
+        "type": "ui_gauge",
+        "z": "2563a908.ea8306",
+        "name": "",
+        "group": "b14a3472.a7f408",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Humidity",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#e6e600",
+            "#00b500",
+            "#ca3838"
+        ],
+        "seg1": "10",
+        "seg2": "90",
+        "x": 640,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "b5c92ee7.ca8d1",
+        "type": "ui_gauge",
+        "z": "2563a908.ea8306",
+        "name": "",
+        "group": "2f6c7649.a86eca",
+        "order": 1,
+        "width": "6",
+        "height": "4",
+        "gtype": "compass",
+        "title": "Pressure",
+        "label": "hPa",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "1050",
+        "colors": [
+            "#e6e600",
+            "#00b500",
+            "#ca3838"
+        ],
+        "seg1": "10",
+        "seg2": "50",
+        "x": 640,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "17d7b653.8016aa",
+        "type": "function",
+        "z": "2563a908.ea8306",
+        "name": "Altitude",
+        "func": "var sea_level_pressure = 1003.59\nvar pressure = msg.payload.d.pressure\nvar temperature = msg.payload.d.temperature\n\nvar A = (sea_level_pressure/(pressure/100))\nvar B = Math.pow(A, (1/5.257))\nvar C = (B-1) * (temperature + 273.15)\nvar D = C / 0.0065\n\nvar altitude = Number(D.toFixed(2))\n\nreturn {payload:altitude};",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 480,
+        "y": 420,
+        "wires": [
+            [
+                "c71d4c57.b7897",
+                "ce28dea8.ad1f6"
+            ]
+        ]
+    },
+    {
+        "id": "c71d4c57.b7897",
+        "type": "ui_gauge",
+        "z": "2563a908.ea8306",
+        "name": "",
+        "group": "6457de76.66924",
+        "order": 3,
+        "width": "6",
+        "height": "4",
+        "gtype": "compass",
+        "title": "Altitude",
+        "label": "meters",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "1000",
+        "colors": [
+            "#e6e600",
+            "#00b500",
+            "#ca3838"
+        ],
+        "seg1": "50",
+        "seg2": "200",
+        "x": 640,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "ce28dea8.ad1f6",
         "type": "debug",
         "z": "2563a908.ea8306",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
         "complete": "true",
-        "x": 210,
-        "y": 800,
+        "x": 630,
+        "y": 460,
         "wires": []
+    },
+    {
+        "id": "89705487.6fb618",
+        "type": "function",
+        "z": "2563a908.ea8306",
+        "name": "Accel_XYZ",
+        "func": "var accelerometer = msg.payload.d.accelerometer\n\nvar msg = {};\nvar msg1 = {};\nvar msg2 = {};\n\nmsg.payload = accelerometer.x\nmsg.topic = 'X'\n\nmsg1.payload = accelerometer.y\nmsg1.topic = 'Y'\n\nmsg2.payload = accelerometer.z\nmsg2.topic = 'Z'\n\nreturn [msg, msg1, msg2];",
+        "outputs": 3,
+        "noerr": 0,
+        "x": 470,
+        "y": 40,
+        "wires": [
+            [
+                "7aabf170.ebb1a"
+            ],
+            [
+                "7aabf170.ebb1a"
+            ],
+            [
+                "7aabf170.ebb1a"
+            ]
+        ]
+    },
+    {
+        "id": "7aabf170.ebb1a",
+        "type": "ui_chart",
+        "z": "2563a908.ea8306",
+        "name": "",
+        "group": "b5ed682e.807198",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "label": "Accelerometer",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "Waiting for data...",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "5",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "1",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "x": 700,
+        "y": 40,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "cc64e800.3cfd48",
+        "type": "function",
+        "z": "2563a908.ea8306",
+        "name": "Gyro_XYZ",
+        "func": "var gyroscope = msg.payload.d.gyroscope;\n\nvar msg = {};\nvar msg1 = {};\nvar msg2 = {};\n\nmsg.payload = gyroscope.x\nmsg.topic = 'X'\n\nmsg1.payload = gyroscope.y\nmsg1.topic = 'Y'\n\nmsg2.payload = gyroscope.z\nmsg2.topic = 'Z'\n\nreturn [msg, msg1, msg2];",
+        "outputs": 3,
+        "noerr": 0,
+        "x": 470,
+        "y": 100,
+        "wires": [
+            [
+                "c9af2094.10fde"
+            ],
+            [
+                "c9af2094.10fde"
+            ],
+            [
+                "c9af2094.10fde"
+            ]
+        ]
+    },
+    {
+        "id": "c9af2094.10fde",
+        "type": "ui_chart",
+        "z": "2563a908.ea8306",
+        "name": "",
+        "group": "219b89cd.2731c6",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "label": "Gyroscope",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "Waiting for data...",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "5",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "1",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "x": 690,
+        "y": 100,
+        "wires": [
+            [],
+            []
+        ]
     },
     {
         "id": "88fe0e38.c2ceb",
@@ -279,10 +435,77 @@
         "birthPayload": ""
     },
     {
-        "id": "45697dc8.44b754",
-        "type": "websocket-listener",
+        "id": "2ada1bdf.a21f94",
+        "type": "ui_group",
         "z": "",
-        "path": "/websocket",
-        "wholemsg": "false"
+        "name": "Temperature",
+        "tab": "8bc3d554.c670a8",
+        "order": 1,
+        "disp": false,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "b14a3472.a7f408",
+        "type": "ui_group",
+        "z": "",
+        "name": "Humidity",
+        "tab": "8bc3d554.c670a8",
+        "order": 2,
+        "disp": false,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "2f6c7649.a86eca",
+        "type": "ui_group",
+        "z": "",
+        "name": "Pressure",
+        "tab": "8bc3d554.c670a8",
+        "order": 3,
+        "disp": false,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "6457de76.66924",
+        "type": "ui_group",
+        "z": "",
+        "name": "Altitude",
+        "tab": "8bc3d554.c670a8",
+        "order": 4,
+        "disp": false,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "b5ed682e.807198",
+        "type": "ui_group",
+        "z": "",
+        "name": "Accel",
+        "tab": "8bc3d554.c670a8",
+        "order": 5,
+        "disp": false,
+        "width": "12",
+        "collapse": false
+    },
+    {
+        "id": "219b89cd.2731c6",
+        "type": "ui_group",
+        "z": "",
+        "name": "Gyro",
+        "tab": "8bc3d554.c670a8",
+        "order": 6,
+        "disp": false,
+        "width": "12",
+        "collapse": false
+    },
+    {
+        "id": "8bc3d554.c670a8",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Home",
+        "icon": "dashboard",
+        "order": "1"
     }
 ]

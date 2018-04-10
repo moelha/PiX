@@ -2,8 +2,8 @@
 
 
 
-# Pi<img src="https://upload.wikimedia.org/wikipedia/commons/3/36/SpaceX-Logo-Xonly.svg" alt="alt text" width="50" height="60"> 
-Rocket flight recorder based on Raspberry Pi Zero W v1.3)
+# PiX - Rocket flight recorder based on Raspberry Pi Zero W
+
 
 <table border="0">
   <tr>

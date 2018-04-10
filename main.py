@@ -11,9 +11,20 @@ def send_mqtt_message(sensor_data, mqttPath):
 while True:
 
     #Get temperature, pressure and humidity data
-    temperature = BME280.get_temperature()
-    pressure = BME280.get_pressure()
-    humidity = BME280.get_humidity()
+    try:
+	temperature = BME280.get_temperature()
+    except: 
+	temperature = -1
+
+    try:
+	pressure = BME280.get_pressure()
+    except:
+	pressure = -1
+
+    try:
+	humidity = BME280.get_humidity()
+    except:
+	humidity = -1
 
     #Build Json object with all the identification and sensors data
     BME280_data = {}
@@ -24,9 +35,16 @@ while True:
     BME280_data["d"]["humidity"] = humidity
 
     # Get accelereomter data
-    accel_data = IMU.get_acc()
+    try:
+	accel_data = IMU.get_acc()
+    except:
+	accel_data = -1
+
     # Get gyroscope data
-    gyro_data = IMU.get_gyro()
+    try:
+	gyro_data = IMU.get_gyro()
+    except:
+	gyro_data = -1
 
     # Parse accelerometer data
     accel_x = accel_data['x']
@@ -52,6 +70,8 @@ while True:
     IMU_data["d"]["gyroscope"]["z"] = gyro_z
 
     # Send data via MQTT
-    send_mqtt_message(BME280_data, "sensor/BME280")
-    send_mqtt_message(IMU_data, "sensor/IMU")
-    
+    try:
+	send_mqtt_message(BME280_data, "sensor/BME280")
+        send_mqtt_message(IMU_data, "sensor/IMU")
+    except:
+	print("sending data failed")    

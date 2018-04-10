@@ -2,7 +2,7 @@
 
 
 
-# PiX - Rocket flight recorder
+# PiX - Rocket flight recorder :rocket:
 
 ## Dashboard
 <img src="/images/dashboard.png" alt="Dashboard">

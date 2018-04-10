@@ -1,3 +1,4 @@
+import time
 import json
 import paho.mqtt.publish as publish
 import IMU
@@ -75,3 +76,5 @@ while True:
         send_mqtt_message(IMU_data, "sensor/IMU")
     except:
 	print("sending data failed")    
+
+    time.sleep(0.1)

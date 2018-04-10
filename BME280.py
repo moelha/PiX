@@ -1,33 +1,20 @@
-import math
-import json
-import paho.mqtt.publish as publish
+#!/usr/bin/python
+
+# Import the Adafruit_BME280
 from Adafruit_BME280 import *
 
-
-def send_mqtt_message(sensor_data):
-    mqttPath = "sensor/BME280"
-    message = json.dumps(sensor_data)
-    host = "127.0.0.1"
-    return publish.single(mqttPath, message, hostname=host)
-
+# Create a new instance of the BME280 class
 sensor = BME280(t_mode=BME280_OSAMPLE_8, p_mode=BME280_OSAMPLE_8, h_mode=BME280_OSAMPLE_8)
 
-while(True):
+# Get temperature function
+def get_temperature():
+    return sensor.read_temperature()
 
-    degrees = sensor.read_temperature()
-    pascals = sensor.read_pressure()
-    hectopascals = pascals / 100
-    humidity = sensor.read_humidity()
+# Get pressure function
+def get_pressure():
+    return sensor.read_pressure()
+
+# Get temperature function
+def get_humidity():
+    return sensor.read_humidity()
     
-    jsonObject = {}
-    jsonObject["d"] = {}
-    jsonObject["d"]["id"] = "BME280"
-    jsonObject["d"]["temperature"] = degrees
-    jsonObject["d"]["pressure"] = pascals
-    jsonObject["d"]["humidity"] = humidity
-
-    send_mqtt_message(jsonObject)
-
-#print 'Temp      = {0:0.3f} deg C'.format(degrees)
-#print 'Pressure  = {0:0.2f} hPa'.format(hectopascals)
-#print 'Humidity  = {0:0.2f} %'.format(humidity)

@@ -8,7 +8,7 @@ def send_mqtt_message(sensor_data, mqttPath):
     host = "127.0.0.1"
     return publish.single(mqttPath, message, hostname=host)
 
-while(True):
+while True:
 
     #Get temperature, pressure and humidity data
     temperature = BME280.get_temperature()

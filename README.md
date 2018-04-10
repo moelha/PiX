@@ -140,23 +140,11 @@ sudo python setup.py install
 Now let's install a MQTT broker, Mosquitto
 ```
 cd ~	
-```
-```
 wget http://repo.mosquitto.org/debian/mosquitto-repo.gpg.key
-```
-```
 sudo apt-key add mosquitto-repo.gpg.key
-```
-```
 cd /etc/apt/sources.list.d/
-```
-```
 sudo wget http://repo.mosquitto.org/debian/mosquitto-jessie.list
-```
-```
 sudo apt-get update
-```
-```
 sudo apt-get install mosquitto mosquitto-clients
 ```
 ---
@@ -169,11 +157,7 @@ Connect the camera with the Raspberry Pi Zero W and proceed with the instruction
 First, let's clone the RPi Cam Web Interface repository and install it
 ```
 git clone https://github.com/silvanmelchior/RPi_Cam_Web_Interface.git
-```
-```
 cd RPi_Cam_Web_Interface
-```
-```
 ./install.sh
 ```
 ---

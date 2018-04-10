@@ -4,7 +4,10 @@
 
 # PiX - Rocket flight recorder
 
+## Dashboard
+<img src="/images/dashboard.png" alt="Dashboard">
 
+## Fligh recorder
 <table border="0">
   <tr>
     <td><img src="/images/PiX_front.jpg" alt="Front"></td>

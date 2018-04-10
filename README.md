@@ -2,7 +2,7 @@
 
 
 
-# PiX - Rocket flight recorder based on Raspberry Pi Zero W
+# PiX - Rocket flight recorder
 
 
 <table border="0">

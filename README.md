@@ -15,12 +15,12 @@
 
 
 
- 
  ---
  
  ## Table of Contents
 - [Getting started](#getting-started)
 - [Electronic components](#electronic-components)
+- [Schematic](#schematic)
 - [Model rocket](#model-rocket)
 - [Getting started](#getting-started)
   - [Tools](#tools)
@@ -43,6 +43,10 @@
 | BMP280                | Pressure, temperature and humidity sensor|[Pimoroni](https://shop.pimoroni.com/products/adafruit-bmp280-i2c-or-spi-barometric-pressure-altitude-sensor)|    £10.50       |
 | MPU6050         | Accelerometer and Gyroscope     |[Sparkfun](https://www.sparkfun.com/products/11028)  |   £21.26       |
 
+ ## Schematic
+ 
+<img src="/images/schematic.png" alt="Schematic">
+
 ## Model rocket:
 
 | Component             |        Description       |     Source      |                          Price                            |
@@ -60,7 +64,6 @@ Now, we are also going to need a few tools, so downloading them now is a good id
 - [Etcher](https://etcher.io/) - SD Card flasher
 - [Advanced IP Scanner](https://www.advanced-ip-scanner.com) - IP Scanner
 - [Putty](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) - SSH client
-
 
 ### Raspbian Jessie Lite
 
@@ -137,23 +140,11 @@ sudo python setup.py install
 Now let's install a MQTT broker, Mosquitto
 ```
 cd ~	
-```
-```
 wget http://repo.mosquitto.org/debian/mosquitto-repo.gpg.key
-```
-```
 sudo apt-key add mosquitto-repo.gpg.key
-```
-```
 cd /etc/apt/sources.list.d/
-```
-```
 sudo wget http://repo.mosquitto.org/debian/mosquitto-jessie.list
-```
-```
 sudo apt-get update
-```
-```
 sudo apt-get install mosquitto mosquitto-clients
 ```
 ---
@@ -166,11 +157,7 @@ Connect the camera with the Raspberry Pi Zero W and proceed with the instruction
 First, let's clone the RPi Cam Web Interface repository and install it
 ```
 git clone https://github.com/silvanmelchior/RPi_Cam_Web_Interface.git
-```
-```
 cd RPi_Cam_Web_Interface
-```
-```
 ./install.sh
 ```
 ---

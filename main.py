@@ -70,6 +70,14 @@ while True:
     IMU_data["d"]["gyroscope"]["y"] = gyro_y
     IMU_data["d"]["gyroscope"]["z"] = gyro_z
 
+    # Log data to CSV
+    from time import sleep, time
+    with open("launch_log.csv", "a") as log:
+        try:
+            log.write("{0},{1},{2},{3},{4},{5},{6},{7},{8),{9}\n".format(time(), str(temperature), str(pressure), str(humidity), str(accel_x), str(accel_y), str(accel_z), str(gyro_x), str(gyro_y), str(gyro_z)))
+        except:
+            print("logging data failed")
+
     # Send data via MQTT
     try:
 	send_mqtt_message(BME280_data, "sensor/BME280")
@@ -77,4 +85,4 @@ while True:
     except:
 	print("sending data failed")    
 
-    time.sleep(0.1)
+    sleep(1)

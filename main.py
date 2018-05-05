@@ -74,7 +74,7 @@ while True:
     from time import sleep, time
     with open("launch_log.csv", "a") as log:
         try:
-            log.write("{0},{1},{2},{3},{4},{5},{6},{7},{8),{9}\n".format(time(), str(temperature), str(pressure), str(humidity), str(accel_x), str(accel_y), str(accel_z), str(gyro_x), str(gyro_y), str(gyro_z)))
+            log.write("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9}\n".format(time(), str(temperature), str(pressure), str(humidity), str(accel_x), str(accel_y), str(accel_z), str(gyro_x), str(gyro_y), str(gyro_z)))
         except:
             print("logging data failed")
 

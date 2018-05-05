@@ -21,10 +21,10 @@
  ---
  
  ## Table of Contents
-- [Getting started](#getting-started)
-- [Electronic components](#electronic-components)
-- [Schematic](#schematic)
-- [Model rocket](#model-rocket)
+- [Bill of material](#bill-of-material)
+  - [Electronic components](#electronic-components)
+  - [Schematic](#schematic)
+  - [Model rocket](#model-rocket) 
 - [Getting started](#getting-started)
   - [Tools](#tools)
   - [Raspbian Jessie Lite](#raspbian-jessie-lite)
@@ -32,9 +32,12 @@
   - [Mosquitto](#mosquitto)
   - [RPi Cam Interface](#rpi-cam-interface)
   - [Node-RED](#node-red) 
+- [Usage](#usage)
  ---
+ 
+## Bill of material
 
- ## Electronic components 
+ ### Electronic components 
 
 | Component             |        Description       |     Source      |                          Price                            |
 | -------------         |:-------------:           |:-----:          | -----:                                                    |
@@ -46,11 +49,11 @@
 | BMP280                | Pressure, temperature and humidity sensor|[Pimoroni](https://shop.pimoroni.com/products/adafruit-bmp280-i2c-or-spi-barometric-pressure-altitude-sensor)|    £10.50       |
 | MPU6050         | Accelerometer and Gyroscope     |[Sparkfun](https://www.sparkfun.com/products/11028)  |   £21.26       |
 
- ## Schematic
+ ### Schematic
  
 <img src="/images/schematic.png" alt="Schematic">
 
-## Model rocket:
+### Model rocket:
 
 | Component             |        Description       |     Source      |                          Price                            |
 | -------------         |:-------------:           |:-----:          | -----:                                                    |
@@ -59,7 +62,7 @@
 <img src="/images/image_from_rocket.jpg" alt="Shot from model rocket">
 
 ## Getting started
-Let's get started! First thing first, solder the MPU6050, BME280 and the LiPo SHIM for the best results. Other means of connection, such as jumper wires or connectors are discouraged as they might disconnect during takeoff. 
+Let's get started! First thing first, solder the MPU6050, BME280 and the LiPo SHIM to the Raspberry Pi Zero W for the best results. Other means of connection, such as jumper wires or connectors are discouraged as they might disconnect during takeoff. 
 
 Now, we are also going to need a few tools, so downloading them now is a good idea.
 
@@ -179,3 +182,28 @@ Make it autostart on boot
 ```
 sudo systemctl enable nodered.service
 ```
+ ## Usage
+ 
+ Clone this repository in your /home/pi directory of your Raspberry Pi Zero W. 
+ To run the program on boot, open the *rc.local* file
+```
+sudo nano rc.local
+```
+And add the following line at the end, but before *exit 0*
+```
+python /home/pi/PiX/main.py
+``` 
+Open your Pi's IP address with a browser at the /html directory to view the camera feed
+``` 
+www.192.168.1.242/html
+``` 
+Open your Pi's IP address on the 1880 port to access Node-RED
+``` 
+www.192.168.1.242:1880
+``` 
+Add the /ui directory to view the dashboard
+``` 
+wwww.192.168.1.242:1880/ui
+``` 
+
+**Note** use your own Pi IP address that you found with [Angry IP Scanner](#tools)

@@ -41,7 +41,7 @@
 
 | Component             |        Description       |     Source      |                          Price                            |
 | -------------         |:-------------:           |:-----:          | -----:                                                    |
-| Raspberry Pi Zero W   | Version 1.3              |[Pimoroni](https://shop.pimoroni.com/products/raspberry-pi-zero)|       £4.58            |
+| Raspberry Pi Zero W   | Version 1.3              |[Pimoroni](https://shop.pimoroni.com/products/raspberry-pi-zero-w)|       £9.30            |
 | MicroSD Card   | 64GB              |[Amazon](https://www.amazon.co.uk/SanDisk-microSDXC-Memory-Adapter-Performance/dp/B073JYVKNX/ref=sr_1_2)|       £17.49            |
 | Camera   | Camera for Raspberry Pi Zero   |[Pimoroni](https://shop.pimoroni.com/products/raspberry-pi-zero-camera-module)|       £14            |
 | LiPo SHIM             | Enables the RPi to be power supplied from a battery |[Pimoroni](https://shop.pimoroni.com/products/lipo-shim)| £10 |
